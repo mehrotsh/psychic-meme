@@ -1,0 +1,15 @@
+stages:
+  - deploy
+
+.deploy to AKS:
+  stage: deploy
+  tags:
+    - aks
+  script:
+    - echo "Configuring kubectl..."
+    - kubectl config set-cluster mycluster --server=$KUBE_URL --insecure-skip-tls-verify=true
+    - kubectl config set-credentials gitlab-runner --token=$KUBE_TOKEN
+    - kubectl config set-context default --cluster=mycluster --user=gitlab-runner
+    - kubectl config use-context default
+    - echo "Deploying to AKS..."
+    - kubectl apply -f $KUBE_MANIFEST_PATH
