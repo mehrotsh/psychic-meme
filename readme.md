@@ -1,5 +1,6 @@
 Here's how they can include and use the reusable pipeline:
 
+```
 # .gitlab-ci.yml in some other project
 
 include:
@@ -13,4 +14,5 @@ build_my_project_image:
     DOCKERFILE_PATH: path/to/my/Dockerfile
     IMAGE_NAME: my-custom-image-name
     IMAGE_TAG: v1.0.0
+```
 
