@@ -1,0 +1,26 @@
+stages:
+  - deploy
+
+.setup helm:
+  stage: deploy
+  tags:
+    - aks
+  script:
+    - echo "Configuring kubectl..."
+    - kubectl config set-cluster mycluster --server=$KUBE_URL --insecure-skip-tls-verify=true
+    - kubectl config set-credentials gitlab-runner --token=$KUBE_TOKEN
+    - kubectl config set-context default --cluster=mycluster --user=gitlab-runner
+    - kubectl config use-context default
+    
+    - echo "Setting up Helm..."
+    - helm version --short
+    - helm repo add [REPO_NAME] [REPO_URL]
+    - helm repo update
+
+.deploy helm:
+  stage: deploy
+  tags:
+    - aks
+  script:
+    - echo "Deploying Helm chart..."
+    - helm upgrade --install $RELEASE_NAME $CHART_PATH --namespace $NAMESPACE -f $VALUES_PATH
