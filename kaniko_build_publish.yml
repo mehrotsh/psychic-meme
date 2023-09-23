@@ -1,0 +1,16 @@
+# .gitlab/ci_templates/kaniko_build_publish.yml
+.build_and_publish:
+  image: 
+    name: gcr.io/kaniko-project/executor:latest
+    entrypoint: [""]
+  variables:
+    # These can be overridden
+    DOCKERFILE_PATH: Dockerfile
+    IMAGE_NAME: my-image
+    IMAGE_TAG: latest
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $DOCKERFILE_PATH --destination $CI_REGISTRY_IMAGE/$IMAGE_NAME:$IMAGE_TAG
+  only:
+    - master # Or whichever branch you want to use
+
