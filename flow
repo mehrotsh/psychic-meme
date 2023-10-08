@@ -1,0 +1,15 @@
+st=>start: Start Automation Script
+op1=>operation: Scan Kured Logs for Eviction Errors
+cond1=>condition: Are there Pods Blocking Eviction?
+op2=>operation: Identify the Deployment/StatefulSet Owner
+cond2=>condition: Is Owner a Deployment?
+op3=>operation: Scale Deployment Replica to 2
+op4=>operation: Scale StatefulSet Replica to 2
+op5=>operation: Record Scaled Workload Info
+e=>end: End Script
+
+st->op1->cond1
+cond1(yes)->op2->cond2
+cond1(no)->e
+cond2(yes)->op3->op5->e
+cond2(no)->op4->op5->e
