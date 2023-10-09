@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <input type="text" id="dataInput" placeholder="Enter some data">
+  <button onclick="submitData()">Submit</button>
+
+  <script>
+    function submitData() {
+      const data = $('#dataInput').val();
+      $.post('http://backend-service:3001/data', { data }, function(response) {
+        alert('Data saved successfully!');
+      });
+    }
+  </script>
+</body>
+</html>
