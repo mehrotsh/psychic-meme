@@ -1,0 +1,72 @@
+Before the Session
+What is Containerization?
+
+A) A method for packaging software
+B) A way to automate networks
+C) A type of virtual machine
+D) A database management system
+Answer: A) A method for packaging software
+Which of the following is a benefit of containerization?
+
+A) Increased hardware usage
+B) Reduced isolation between applications
+C) Consistency across environments
+D) Higher data storage requirements
+Answer: C) Consistency across environments
+What is the main difference between a container and a virtual machine?
+
+A) Containers are used only for data storage
+B) Containers share the host system’s kernel
+C) Virtual machines are open-source
+D) Virtual machines are faster
+Answer: B) Containers share the host system’s kernel
+What is a Container Image?
+
+A) A backup of a container
+B) A live instance of an application
+C) A lightweight virtual machine
+D) A blueprint for creating a container
+Answer: D) A blueprint for creating a container
+Which of these is NOT a common component of containerized architecture?
+
+A) Image Registry
+B) Container Orchestrator
+C) Load Balancer
+D) Optical Character Recognition (OCR) software
+Answer: D) Optical Character Recognition (OCR) software
+After the Session
+Which tool does your organization use for building container images?
+
+A) Docker
+B) Kubernetes
+C) Kaniko
+D) Jenkins
+Answer: C) Kaniko
+What is the primary advantage of using Kaniko over Docker for image building?
+
+A) Kaniko supports more programming languages
+B) Kaniko builds images faster than Docker
+C) Kaniko can build images in a containerized environment without root access
+D) Kaniko is more widely used
+Answer: C) Kaniko can build images in a containerized environment without root access
+How do containers achieve isolation from the host system?
+
+A) By using a separate operating system
+B) Through hardware partitioning
+C) Using namespaces and cgroups
+D) By encrypting the application data
+Answer: C) Using namespaces and cgroups
+What is a Container Registry used for?
+
+A) Monitoring container performance
+B) Storing container images
+C) Balancing load between containers
+D) Managing user access to containers
+Answer: B) Storing container images
+What is the main role of a Container Orchestrator?
+
+A) To build container images
+B) To manage the lifecycle of containers in a cluster
+C) To store and organize container images
+D) To provide a user interface for container management
+Answer: B) To manage the lifecycle of containers in a cluster
