@@ -1,0 +1,78 @@
+Slide 2: What is Containerization?
+Definition: Containerization is a technology for packaging and deploying applications in a standardized unit of software.
+Containers are pieces of software that package code and all of the dependencies that code needs to run, including the runtime, tools, libraries, and settings.
+
+In the diagram below, you'll see an example of three dev containers: one for Python, one for Java, and one for C++. Each of these dev containers would include the app and the dependencies that app needs to run. 
+The dependencies are separate from the rest of your computer (which are represented by the Infrastructure and Host Operating System).
+
+Benefits:
+Isolation: Containers provide isolation between applications, ensuring they don't interfere with each other.
+Portability: Containers can run on any system with a compatible container runtime, making them truly portable.
+Agility: Containers start up faster than virtual machines, leading to faster development and deployment cycles.
+Scalability: Containers can be easily scaled up or down to meet changing demands.
+
+
+
+Slide 3: Containerization vs. Virtualization
+
+Containers and VMs are similar in their goals: to isolate an application and its dependencies into a self-contained unit that can run anywhere.
+
+CONTAINERS
+Containers are an abstraction at the app layer that packages code and dependencies together. 
+Multiple containers can run on the same machine and share the OS kernel with other containers, each running as isolated processes in user space.
+Containers take up less space than VMs (container images are typically tens of MBs in size), can handle more applications and require fewer VMs and Operating systems.
+
+VIRTUAL MACHINES
+Virtual machines (VMs) are an abstraction of physical hardware turning one server into many servers.
+The hypervisor allows multiple VMs to run on a single machine. Each VM includes a full copy of an operating system, the application, 
+necessary binaries and libraries – taking up tens of GBs. VMs can also be slow to boot.
+
+
+
+Slide 4:Container Images and Dockerfiles
+
+A container image is a portable, self-contained software package that includes everything needed to run an application.
+Composition:
+Base image: Provides the underlying operating system and runtime environment.
+Layers: Built upon the base image, containing application code, libraries, and configuration files.
+Image layers are immutable: Once created, they cannot be modified.
+Images are stored in container registries: Public (Docker Hub) or private.
+
+Image: A Dockerfile template.
+Definition: A Dockerfile is a text file containing instructions for building a container image.
+Instructions:
+FROM: Specifies the base image.
+RUN: Executes commands to install dependencies and build the application.
+COPY: Copies files from the host system into the image.
+ENV: Sets environment variables.
+CMD: Defines the command to run when the container starts.
+Multi-stage builds: Create multiple images for different stages of the build process.
+
+
+
+Slide 5: What is Kaniko?
+
+Definition: Kaniko is a tool developed by Google to build container images from a Dockerfile, safely and efficiently, especially in environments where running a Docker daemon is not feasible or secure.
+It is designed to work in environments with stricter security constraints and can be used in various cloud environments and Kubernetes.
+
+Benefits:
+Security: Kaniko builds images without requiring root access, reducing the attack surface.
+Compliance: Kaniko complies with strict security policies and regulations.
+Portability: Kaniko can run on any system without requiring a Docker daemon installed.
+
+
+How Kaniko Works?
+
+Kaniko doesn't depend on a Docker daemon to build Docker images. Instead, it executes the build in a containerized environment itself.
+It takes a Dockerfile and a context (the source code) as input and produces a container image as output.
+Kaniko builds images by directly interacting with the container registry, which can be public or private.
+Kaniko vs. Docker
+
+Docker: Requires a Docker daemon to build images, which can pose security risks and operational challenges, especially in multi-tenant CI/CD environments.
+Kaniko: Eliminates the need for Docker daemon, enhancing security and enabling image builds in environments where Docker is not installed or cannot run.
+Benefits of Using Kaniko
+
+Security: Builds images without requiring root access or privileges, reducing the attack surface.
+Flexibility: Can be run in any environment that can execute a container, including standard Kubernetes clusters.
+Compatibility: Kaniko is designed to be fully compatible with Dockerfile syntax, making it easy to transition from Docker.
+Integration: Easily integrates with existing CI/CD pipelines and cloud-native tooling.
