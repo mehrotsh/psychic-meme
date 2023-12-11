@@ -76,3 +76,48 @@ Security: Builds images without requiring root access or privileges, reducing th
 Flexibility: Can be run in any environment that can execute a container, including standard Kubernetes clusters.
 Compatibility: Kaniko is designed to be fully compatible with Dockerfile syntax, making it easy to transition from Docker.
 Integration: Easily integrates with existing CI/CD pipelines and cloud-native tooling.
+
+
+Build the Image:
+
+Create a Dockerfile that specifies the instructions for building your image.
+docker build -t <image_name>:<tag> .
+
+
+ Push the Image:
+
+Log in to the registry using docker login command.
+Use docker push command to push the image to the registry.
+docker push <registry_url>/<image_name>:<tag>
+
+
+
+. Pull the Image:
+
+Use docker pull command to pull the image from the registry.
+docker pull <registry_url>/<image_name>:<tag>
+
+
+Run the Image:
+
+Use docker run command to start a container from the pulled image.
+docker run <image_name>:<tag>
+
+
+
+. Docker images
+
+This command lists all images stored locally.
+
+Example:
+
+docker images
+
+
+Docker rm
+
+This command removes a stopped container.
+
+Example:
+
+docker rm <container_id>
