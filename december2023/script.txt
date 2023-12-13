@@ -49,7 +49,15 @@ Agility: Containerized applications start up quickly and scale efficiently, prom
 [End of Slide/Transition to Next Topic]
 "Any initial questions before we move on to our next topic?"
 
+Container A, Container B, Container C: These represent isolated containers. Each container includes an application and its dependencies. The applications are built using different programming languages, as shown by "Python app", "Java app", and "C++ app". Containers encapsulate the runtime environment of the app, which means they include not just the application and its immediate dependencies, but also the specific versions of any libraries that the application requires to run.
 
+Python/Java/C++ runtime, libraries, dependencies: Each container includes not only the application but also the necessary runtime environment (like the Python interpreter, Java Virtual Machine, or C++ standard library) and any libraries or dependencies that are needed. This ensures that the application runs in a consistent environment, regardless of where the container itself is deployed.
+
+Docker: This is a platform used for developing, shipping, and running containers. Docker provides the tooling and platform to manage the lifecycle of containers. In this image, Docker acts as the layer that manages the different containers running on the host system.
+
+Host Operating System: This is the operating system that runs on the host machine. Containers share the host OS kernel but remain isolated from each other. This is different from virtual machines, which would each require a full-blown OS.
+
+Infrastructure: This refers to the physical or virtual infrastructure on which the host operating system runs. It could be a physical server in a data center, a virtual machine in a cloud environment, or any other type of hardware or virtual infrastructure.
 
 Containerization vs Virtualization
 
