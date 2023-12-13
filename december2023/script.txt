@@ -81,30 +81,28 @@ Push or Continue developing: After testing, if the application is ready, the cha
 
 Containerization vs Virtualization
 
-Virtualization: Utilizes hypervisors to abstract physical hardware, creating multiple simulated environments or virtual machines (VMs), each with a full-fledged OS, from a single physical server.
-Containerization: Abstracts at the application layer, encapsulating applications in containers with their binaries, libraries, and configuration files, but sharing the OS kernel of the host system.
-2. Resource Allocation & Efficiency:
+The image compares the architecture of containerized applications (using Docker) with that of virtual machines (VMs), highlighting the differences between containerization and virtualization:
 
-VMs: Each VM runs a full copy of an operating system, a virtual copy of the hardware needed to run the OS, leading to significant resource overhead.
-Containers: Share the host system’s kernel, and only the application and its dependencies are packaged. This results in a lightweight and efficient deployment, maximizing resource utilization.
-3. Boot Time & Scalability:
+Containerized Applications (Left Side):
 
-VMs: Longer boot times due to the need to boot a full OS. Scaling involves spinning up new VMs, which can be time-consuming.
-Containers: Start almost instantly as they do not require an OS boot. This rapid start capability facilitates high scalability and responsiveness in microservices architectures.
-4. Isolation & Security:
+Applications (APP A - APP F): These represent different applications or microservices that are containerized. Each container includes the application and its dependencies, but not a full operating system.
+Docker: This layer represents the container runtime environment, which in this case is Docker. Docker provides the necessary tooling and runtime to build, ship, and run containers.
+Host Operating System: All the containers share the same host operating system's kernel. This contrasts with virtualization, where each VM runs its own operating system.
+Infrastructure: This is the physical or virtualized hardware resources that run the host operating system and subsequently the Docker engine and containers.
+Virtual Machines (Right Side):
 
-VMs: Provide strong isolation with separate kernel instances; ideal for running applications with different OS requirements.
-Containers: Share the host OS kernel, potentially less isolated than VMs. However, advancements in container technology (e.g., namespaces, cgroups) have significantly improved their isolation capabilities.
-5. Portability & Consistency:
+Applications (App A - App C): Each application runs within its own VM.
+Guest Operating System: Unlike containers, each VM includes a full guest operating system. This means each application is running in a completely separate OS environment.
+Hypervisor: This is a layer of software that sits between the physical hardware and the virtual machines. It allows multiple VMs to run on a single physical host and manages the distribution of hardware resources to each VM.
+Infrastructure: As with containerization, this represents the physical or virtualized hardware that runs the hypervisor and VMs.
+Key Differences Highlighted in the Image:
 
-VMs: Hardware-level abstraction allows running different OS on the same host. However, the heavyweight nature can make portability more challenging.
-Containers: Encapsulate application environment, ensuring consistency across various computing environments (development, testing, production).
-6. Use Cases:
-
-VMs: Suited for applications requiring full OS isolation, extensive OS-level customizations, and running legacy applications.
-Containers: Ideal for microservices architectures, cloud-native applications, and environments where efficient resource utilization, rapid scaling, and deployment speed are crucial.
-
-
+Resource Efficiency: Containers are generally more resource-efficient than VMs because they share the host OS kernel and avoid running multiple copies of an operating system.
+Startup Time: Containers can start up significantly faster than VMs because they don't need to boot an OS.
+Portability: Containers encapsulate the application and its dependencies, not the entire OS, making them lighter and more portable across different environments.
+Isolation: VMs provide strong isolation by running separate OS instances, while containers provide process-level isolation on the host OS.
+Overhead: VMs have a larger resource footprint due to the need to run full guest operating systems. Containers are more lightweight as they share the host's kernel and only include the application and its runtime environment.
+This distinction is crucial for understanding when to use containers versus VMs, as containers offer quicker deployment and less overhead, which can be beneficial for microservices and scalable cloud-native applications.
 
 
 Container Images and Dockerfules
