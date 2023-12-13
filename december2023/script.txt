@@ -59,6 +59,26 @@ Host Operating System: This is the operating system that runs on the host machin
 
 Infrastructure: This refers to the physical or virtual infrastructure on which the host operating system runs. It could be a physical server in a data center, a virtual machine in a cloud environment, or any other type of hardware or virtual infrastructure.
 
+
+
+Containeriztion process
+
+Code your app: This is the first step where developers write the code for the application.
+
+Write Dockerfile/s: Once the application code is ready, the next step is to create a Dockerfile or multiple Dockerfiles if there are multiple services. A Dockerfile is a script containing a series of commands that Docker will use to build the image of your application.
+
+Create Images defined at Dockerfile/s: The docker build command is used to create Docker images based on the information and commands provided in the Dockerfile. These images are then stored in a Docker repository, which could be local on the developer's machine or remote like Docker Hub.
+
+Define services by writing docker-compose.yml (Optional): For applications that consist of multiple containers, a docker-compose.yml file is used to define the services, their configuration, and their relationships. This is an optional step if the application requires multiple containers that work together.
+
+Run Containers / Compose app: With the Docker images ready and services defined, the docker run command is used to start individual containers, or docker-compose up is used to start services defined in a docker-compose.yml file.
+
+Test your app or microservices: After the containers are running, the next step is to test the application or microservices. This usually involves ensuring that the application is working as expected and that different services can communicate with each other, often through HTTP requests. Testing can be done on a local machine or a virtual machine (VM).
+
+Push or Continue developing: After testing, if the application is ready, the changes can be pushed to a version control system like Git with git push. Alternatively, the developer can continue making changes and iterating through the process.
+
+
+
 Containerization vs Virtualization
 
 Virtualization: Utilizes hypervisors to abstract physical hardware, creating multiple simulated environments or virtual machines (VMs), each with a full-fledged OS, from a single physical server.
