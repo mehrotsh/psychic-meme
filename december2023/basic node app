@@ -1,0 +1,29 @@
+package.json
+{
+  "name": "basic-node-app",
+  "version": "1.0.0",
+  "description": "A basic Node.js app for Docker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+
+app.js
+const express = require('express');
+const app = express();
+const port = 8080;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
+
+Run docker build -t basic-node-app . to build your Docker image.
+Run docker run -p 8080:8080 basic-node-app to start a container from your image.
