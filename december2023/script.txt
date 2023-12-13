@@ -1,3 +1,11 @@
+"Welcome everyone to our introductory session on containerization. I want to emphasize that today's bootcamp is designed as a very basic initial overview of containerization concepts. Our focus will be on understanding the fundamentals, especially in the context of how we use Kaniko in our organization for building container images.
+
+It's important to note that this session is just the starting point. Over the coming months, we will be diving deeper into the world of containerization. We have planned a whole series of sessions that will cover more advanced and specific topics. These will include in-depth discussions on container orchestration, security best practices in containerization, performance optimization, and much more.
+
+So, if some of the topics today seem basic or if we don't cover something you're particularly interested in, rest assured that there's much more to come. We're committed to providing a comprehensive learning journey, gradually building up from the basics to more complex and specialized aspects of containerization.
+
+Thank you for joining this session, and we look forward to exploring this exciting and evolving field with you in our future sessions!"
+
 introduction:
 
 Opening Statement for Containerization Bootcamp with Kaniko
